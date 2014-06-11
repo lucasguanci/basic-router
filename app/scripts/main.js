@@ -18,7 +18,11 @@ $(document).ready(function() {
     post = app.Post[id];
     var template = _.template( $("#tpl-post").html() );
     var cnt = template({post: post});
-    $("div.cnt").html(cnt);
+    $("div.cnt").empty().html(cnt);
+    document.location.href = req.href;
+  });
+  router.addRoute('#', function(req,next) {
+    $("div.cnt").empty().html("<h2>home sweet home</h2>");
     document.location.href = req.href;
   });
   // router.map(function(match) {
